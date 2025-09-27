@@ -22,16 +22,16 @@
     "template",
     "boilerplate"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Nishant Shaklan <nishantshaklan@example.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/expo-native-tabs-template.git"
+    "url": "https://github.com/shaklan2001/expo-native-tab-template.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/expo-native-tabs-template/issues"
+    "url": "https://github.com/shaklan2001/expo-native-tab-template/issues"
   },
-  "homepage": "https://github.com/yourusername/expo-native-tabs-template#readme",
+  "homepage": "https://github.com/shaklan2001/expo-native-tab-template#readme",
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "@react-navigation/native": "^6.1.9",
