@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Expo Native Tab Template",
-    "slug": "expo-native-tab-template",
-    "scheme": "expo-native-tab-template",
+    "name": "Industry Ready Expo App Setup",
+    "slug": "industry-ready-expo-app-setup",
+    "scheme": "industry-ready-expo-app-setup",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,7 +15,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourcompany.exponativetabstemplate"
+      "bundleIdentifier": "com.yourcompany.industryreadyexpoapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -24,17 +24,13 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.yourcompany.exponativetabstemplate"
+      "package": "com.yourcompany.industryreadyexpoapp"
     },
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": [
-      "expo-router",
-      "expo-font",
-      "expo-asset"
-    ],
+    "plugins": ["expo-router", "expo-font", "expo-asset"],
     "experiments": {
       "typedRoutes": true
     }

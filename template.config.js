@@ -1,6 +1,6 @@
 module.exports = {
-  name: "Expo Native Tab Template",
-  slug: "expo-native-tab-template",
+  name: "Industry Ready Expo App Setup",
+  slug: "industry-ready-expo-app-setup",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
@@ -22,7 +22,7 @@ module.exports = {
       foregroundImage: "./assets/adaptive-icon.png",
       backgroundColor: "#0F0F23"
     },
-    package: "com.yourcompany.exponativetabstemplate"
+    package: "com.yourcompany.industryreadyexpoapp"
   },
   web: {
     favicon: "./assets/favicon.png",
