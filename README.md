@@ -19,20 +19,20 @@ A production-ready Expo React Native application with modern architecture, TypeS
 ### Option 1: Using npx (Recommended)
 
 ```bash
-npx create-expo-app@latest MyApp --template industry-ready-expo-app-setup
+npx create-expo-app@latest MyApp --template industry-ready-expo-app
 ```
 
 ### Option 2: Using yarn
 
 ```bash
-yarn create expo-app MyApp --template industry-ready-expo-app-setup
+yarn create expo-app MyApp --template industry-ready-expo-app
 ```
 
 ### Option 3: Manual Installation
 
 ```bash
 # Clone the template
-git clone https://github.com/shaklan2001/industry-ready-expo-app-setup.git MyApp
+git clone https://github.com/shaklan2001/industry-ready-expo-app.git MyApp
 cd MyApp
 
 # Install dependencies

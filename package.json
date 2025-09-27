@@ -1,6 +1,6 @@
 {
   "name": "industry-ready-expo-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Industry-ready Expo React Native app with TypeScript, ESLint, Prettier, Reanimated, and modern architecture",
   "main": "expo-router/entry",
   "scripts": {
