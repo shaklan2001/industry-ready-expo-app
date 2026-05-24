@@ -1,0 +1,25 @@
+# Dependencies & build artifacts
+node_modules/
+.expo/
+dist/
+web-build/
+*.tgz
+
+# Native projects (generated via expo prebuild)
+ios/
+android/
+
+# Git & IDE
+.git/
+.idea/
+.DS_Store
+
+# Env & logs
+.env*
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# TypeScript build info
+*.tsbuildinfo
+expo-env.d.ts

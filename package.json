@@ -1,7 +1,7 @@
 {
   "name": "industry-ready-expo-app",
-  "version": "1.0.3",
-  "description": "Industry-ready Expo React Native app with TypeScript, ESLint, Prettier, Reanimated, and modern architecture",
+  "version": "1.1.0",
+  "description": "Industry-ready Expo SDK 56 template with AI context system, theme setup, TypeScript, Reanimated, and Vite-style welcome UI",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
@@ -18,16 +18,20 @@
     "format:check": "prettier --check .",
     "type-check": "tsc --noEmit",
     "audit": "npm audit",
-    "audit:fix": "npm audit fix"
+    "audit:fix": "npm audit fix",
+    "prepublishOnly": "npm run type-check"
   },
   "keywords": [
     "expo",
+    "expo-template",
     "react-native",
     "expo-router",
     "typescript",
     "eslint",
     "prettier",
     "reanimated",
+    "expo-ui",
+    "ai-context",
     "industry-ready",
     "production-ready",
     "modern-architecture"
