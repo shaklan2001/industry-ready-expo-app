@@ -9,6 +9,8 @@ import Animated, {
   runOnJS,
 } from 'react-native-reanimated';
 
+import { useTheme } from '../../context';
+
 interface BouncingBallProps {
   isAnimating: boolean;
   onAnimationComplete?: () => void;
@@ -18,6 +20,7 @@ export default function BouncingBall({
   isAnimating,
   onAnimationComplete,
 }: BouncingBallProps) {
+  const { colors } = useTheme();
   const translateY = useSharedValue(0);
   const scale = useSharedValue(1);
 
@@ -75,7 +78,16 @@ export default function BouncingBall({
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.ball, animatedStyle]} />
+      <Animated.View
+        style={[
+          styles.ball,
+          {
+            backgroundColor: colors.primary,
+            shadowColor: colors.primary,
+          },
+          animatedStyle,
+        ]}
+      />
     </View>
   );
 }
@@ -91,14 +103,12 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: '#d68dfa',
-    shadowColor: '#d68dfa',
     shadowOffset: {
       width: 0,
       height: 4,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
+    shadowOpacity: 0.45,
+    shadowRadius: 8,
     elevation: 8,
   },
 });

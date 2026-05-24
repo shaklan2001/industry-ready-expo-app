@@ -6,6 +6,8 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 
+import { useTheme } from '../../context';
+
 interface AnimatedButtonProps {
   title: string;
   onPress: () => void;
@@ -17,35 +19,46 @@ export default function AnimatedButton({
   onPress,
   disabled = false,
 }: AnimatedButtonProps) {
+  const { colors, radius, typography, spacing } = useTheme();
   const scale = useSharedValue(1);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scale.value }],
-    };
-  });
-
-  const handlePressIn = () => {
-    scale.value = withSpring(0.95);
-  };
-
-  const handlePressOut = () => {
-    scale.value = withSpring(1);
-  };
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
 
   return (
-    <Animated.View style={[animatedStyle]}>
+    <Animated.View style={animatedStyle}>
       <Pressable
         onPress={onPress}
-        onPressIn={handlePressIn}
-        onPressOut={handlePressOut}
+        onPressIn={() => {
+          scale.value = withSpring(0.95);
+        }}
+        onPressOut={() => {
+          scale.value = withSpring(1);
+        }}
         disabled={disabled}
         style={[
           styles.button,
-          disabled ? styles.buttonDisabled : styles.buttonEnabled,
+          {
+            borderRadius: radius.lg,
+            paddingHorizontal: spacing.lg,
+            paddingVertical: spacing.md,
+            minWidth: 220,
+            backgroundColor: disabled ? colors.primaryDisabled : colors.primary,
+            shadowColor: disabled ? 'transparent' : colors.primary,
+          },
         ]}
       >
-        <Text style={styles.buttonText}>{title}</Text>
+        <Text
+          style={{
+            color: colors.text,
+            fontSize: typography.fontSize.base,
+            fontWeight: typography.fontWeight.semibold,
+            textAlign: 'center',
+          }}
+        >
+          {title}
+        </Text>
       </Pressable>
     </Animated.View>
   );
@@ -53,21 +66,9 @@ export default function AnimatedButton({
 
 const styles = StyleSheet.create({
   button: {
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-    borderRadius: 8,
-    minWidth: 200,
-  },
-  buttonEnabled: {
-    backgroundColor: '#d68dfa',
-  },
-  buttonDisabled: {
-    backgroundColor: '#9ca3af',
-  },
-  buttonText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '600',
-    textAlign: 'center',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    elevation: 8,
   },
 });

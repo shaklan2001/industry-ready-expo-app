@@ -13,6 +13,7 @@ A production-ready Expo React Native application with modern architecture, TypeS
 - 📦 **Ready for production** with proper configuration
 - 🎯 **Cross-platform** - works on iOS, Android, and Web
 - 🛡️ **Code Quality Tools** - Linting, formatting, and type checking
+- 🤖 **AI Context System** - Six-file context for vibe coding and AI-assisted development
 
 ## 🚀 Quick Start
 
@@ -49,6 +50,29 @@ yarn start
 ## 📁 Project Structure
 
 ```
+context/                     # AI-readable project docs (read before building)
+├── project-overview.md      # Product goals, features, scope
+├── architecture.md          # Stack, boundaries, invariants
+├── ui-context.md            # Theme tokens, typography, UI rules
+├── code-standards.md        # TypeScript and coding conventions
+├── ai-workflow-rules.md     # How AI agents should work on this repo
+├── progress-tracker.md      # Current phase, completed work, next steps
+└── specs/                   # Feature specs (one unit at a time)
+
+templates/                   # Blank context templates for new projects
+├── CLAUDE.md
+├── project-overview.md
+├── architecture.md
+├── ui-context.md
+├── code-standards.md
+├── ai-workflow-rules.md
+├── progress-tracker.md
+└── specs/
+    └── unit-template.md
+
+CLAUDE.md                    # AI entry point (Claude Code)
+AGENTS.md                    # AI entry point (Codex / Copilot)
+
 src/
 ├── app/
 │   ├── _layout.tsx          # Root layout with Stack navigator
@@ -61,10 +85,76 @@ src/
 │   └── UI/                  # Reusable UI components
 │       ├── AnimatedButton.tsx    # Animated button with scale effect
 │       └── BouncingBall.tsx      # Bouncing ball animation component
+├── context/                 # Runtime React context
+│   ├── theme.ts             # Design tokens (colors, spacing, typography)
+│   ├── ThemeContext.tsx     # ThemeProvider + useTheme()
+│   └── index.ts
 ├── hooks/                   # Custom React hooks
 ├── services/                # API services and utilities
 └── types/                   # TypeScript type definitions
 ```
+
+## 🤖 AI Context System
+
+This template includes the **Six-File Context System** for building with AI without drift. Your coding agent reads these files at the start of every session so it knows your product, architecture, theme, and rules.
+
+### Context files (`context/`)
+
+| File | Purpose |
+|------|---------|
+| `project-overview.md` | What you're building, goals, scope, success criteria |
+| `architecture.md` | Stack, folder boundaries, storage, invariants |
+| `ui-context.md` | Colors, typography, spacing, component conventions |
+| `code-standards.md` | TypeScript, naming, linting, patterns |
+| `ai-workflow-rules.md` | Spec-driven workflow and scoping rules |
+| `progress-tracker.md` | Current phase, done work, open questions |
+| `specs/` | One spec per feature unit |
+
+### Entry points
+
+- **`CLAUDE.md`** — read by Claude Code
+- **`AGENTS.md`** — read by Codex, GitHub Copilot, and other agents
+
+Both files tell the agent to read the six context files in order before making changes.
+
+### Theme: docs + code
+
+- **`context/ui-context.md`** — design rules for humans and AI
+- **`src/context/theme.ts`** — runtime tokens used in components
+- **`useTheme()`** — hook from `src/context/ThemeContext.tsx`
+
+```tsx
+import { useTheme } from '../context';
+
+export default function MyScreen() {
+  const { colors, spacing, typography } = useTheme();
+
+  return (
+    <View style={{ backgroundColor: colors.background, padding: spacing.lg }}>
+      <Text style={{ color: colors.text, fontSize: typography.fontSize.xl }}>
+        Hello
+      </Text>
+    </View>
+  );
+}
+```
+
+### Getting started with AI
+
+1. Edit `context/project-overview.md` with your app idea
+2. Update `context/progress-tracker.md` with your current goal
+3. Write a spec in `context/specs/` for the first feature unit
+4. Prompt your agent:
+
+```
+Read context/specs/01-your-feature.md.
+Update context/progress-tracker.md to mark this in progress.
+Implement exactly as specified.
+```
+
+### Blank templates (`templates/`)
+
+Starting a new idea? Copy `templates/` into a `context/` folder, fill in the blanks using prompts from [`README copy.md`](README%20copy.md) (the full AI-driven developer playbook), and add `CLAUDE.md` to your project root.
 
 ## 🎨 What's Included
 
@@ -98,6 +188,8 @@ npm run lint:fix         # Fix ESLint issues automatically
 npm run format           # Format code with Prettier
 npm run format:check     # Check code formatting
 npm run type-check       # Run TypeScript type checking
+npm run audit            # Check dependency vulnerabilities
+npm run audit:fix        # Apply safe audit fixes
 
 # Building
 npm run build:android    # Build for Android
