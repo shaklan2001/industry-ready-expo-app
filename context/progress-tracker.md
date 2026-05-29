@@ -46,6 +46,6 @@ Update this file after every meaningful implementation change.
 
 ## Session Notes
 
-- Template includes `README copy.md` — full AI-driven developer playbook
-- Use `templates/` blanks when starting a fresh idea in a new project
+- README updated for v1.1.1 — documents Vite-style Home UI, new UI components, accurate project structure
+- Removed stale references to `templates/`, `CLAUDE.md`, and `README copy.md` (not shipped in package)
 - Run `npm run audit` for dependency security checks

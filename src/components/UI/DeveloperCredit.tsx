@@ -1,13 +1,18 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, Pressable, Linking } from 'react-native';
 
 import { useTheme } from '../../context';
+
+const PORTFOLIO_URL = 'https://www.nishantshaklan.co.in/';
 
 export default function DeveloperCredit() {
   const { colors, typography, spacing, radius } = useTheme();
 
   return (
-    <View
+    <Pressable
+      onPress={() => Linking.openURL(PORTFOLIO_URL)}
+      accessibilityRole="link"
+      accessibilityLabel="Open Nishant Shaklan portfolio"
       style={[
         styles.badge,
         {
@@ -35,7 +40,7 @@ export default function DeveloperCredit() {
           Nishant Shaklan
         </Text>
       </Text>
-    </View>
+    </Pressable>
   );
 }
 

@@ -1,7 +1,7 @@
 module.exports = {
   name: "Industry Ready Expo App Setup",
   slug: "industry-ready-expo-app",
-  version: "1.1.0",
+  version: "1.1.3",
   orientation: "portrait",
   icon: "./assets/icon.png",
   userInterfaceStyle: "dark",
